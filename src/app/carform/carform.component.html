@@ -1,0 +1,86 @@
+<section>
+    <h2>Form for creation of a car calling</h2>
+
+    <form method="post" #carCreateForm="ngForm" class="form-group">  
+        <div>Valeurs du formulaire : {{carCreateForm.value |json}}</div>
+    
+        <div class="form-group">
+        <label>Title de l'annonce : </label>
+        <input type="text" [(ngModel)]="formCar.title" class="form-control" name="title" ngModel>
+        </div>
+        <div class="form-group">
+        <label>Adresse : </label>
+        <input type="text" [(ngModel)]="formCar.address" class="form-control" name="address" ngModel>
+        </div>
+        <div class="form-group">
+        <label>Marque du vehicule : </label>
+        <input type="text" [(ngModel)]="formCar.brand" class="form-control" name="brand" ngModel>
+        </div>
+        <div class="form-group">
+        <label>Modèle du véhicule : </label>
+        <input type="text" [(ngModel)]="formCar.model" class="form-control" name="model" ngModel>
+        </div>
+        <div class="form-group">
+        <label>Année du model : </label>
+        <input type="text" [(ngModel)]="formCar.model_year" class="form-control" name="model_year" ngModel>
+        </div>
+        <div class="form-group">
+        <label>Date de mise en service : </label>
+        <input type="text" class="form-control" name="issuance" ngModel required>
+        </div>
+        <div class="form-group">
+        <label>mileage : </label>
+        <input type="text" [(ngModel)]="formCar.mileage" class="form-control" name="mileage" ngModel>
+        </div>
+        <div class="form-group">
+        <label>Carburant : </label>
+        <input type="text" [(ngModel)]="formCar.fuel" class="form-control" name="fuel" ngModel>
+        </div>
+        <div class="form-group">
+        <label>Couleur : </label>
+        <select class="form-control" [ngModel]="formCar.color" name="color" ngModel>
+            <option selected>Blanc</option>
+            <option>Bleu</option>
+            <option>Noir</option>
+            <option>Rouge</option>
+            <option>Vert</option>
+        </select>
+        </div>
+        <div class="form-group">
+            <label>Nombre de portes</label>
+            <select class="form-control" [(ngModel)]="formCar.number_doors" name="number_doors" ngMode>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option selected>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            </select>
+        </div>
+        <div class="form-group">
+        <label>Nombre de portes : </label>
+        <input type="text" [(ngModel)]="formCar.number_doors" class="form-control" name="number_doors" ngModel>
+        </div>
+        <div class="form-group">
+        <label>Puissance (en chevaux) : </label>
+        <input type="text" [(ngModel)]="formCar.horse_power" class="form-control" name="horse_power" ngModel>
+        </div>
+        <div class="form-group">
+        <label>Prix : </label>
+        <input type="text" [(ngModel)]="formCar.price " class="form-control" name="price" ngModel>
+        </div>
+        <div class="form-group">
+        <label>Image d'illustration : </label>
+        <input type="text" class="form-control" name="picture" ngModel>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" [(ngModel)]="formCar.sold" type="checkbox" name="sold" ngModel>
+        <label class="form-check-label">Vendu ?
+        </label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2" (click)="postCar()">Envoyer</button>
+    </form>
+</section>
