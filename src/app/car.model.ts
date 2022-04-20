@@ -24,7 +24,6 @@ export class Car {
     shown?:          boolean = false;
 
     constructor() {
-        this.id = 1;
         this.title = "";
         this.issuance = "01-02-1123";
         this.price = 1000;

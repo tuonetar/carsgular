@@ -50,20 +50,7 @@ export class CarspecsComponent implements OnInit {
   deleteCar(): void {
 
   }
-
-  updateCar(): void {
-    /*
-    const data = this.formCar;
-    this.carsService.create(data)
-      .subscribe({
-        next: (res) => {
-          console.log(res);
-        },
-        error: (e) => console.error(e)
-      });
-      */
-  }
-
+  
   getCarData(id: number) {
     this.carsService.getById(id).subscribe({
       next: (data) => {

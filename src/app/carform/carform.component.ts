@@ -16,7 +16,6 @@ export class CarformComponent implements OnInit {
     this.newCarForm();
   }
 
-  
   newCarForm(): void {
     this.formCar = new Car();
   }

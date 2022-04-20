@@ -14,6 +14,7 @@ import { DaterankerPipe } from './pipes/dateranker.pipe';
 import { SearcherPipe } from './pipes/searcher.pipe';
 import { PricefilterPipe } from './pipes/pricefilter.pipe';
 import { CarslistComponent } from './components/carslist/carslist.component';
+import { CareditComponent } from './components/caredit/caredit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { CarslistComponent } from './components/carslist/carslist.component';
     DaterankerPipe,
     SearcherPipe,
     PricefilterPipe,
-    CarslistComponent
+    CarslistComponent,
+    CareditComponent
   ],
   imports: [
     BrowserModule,

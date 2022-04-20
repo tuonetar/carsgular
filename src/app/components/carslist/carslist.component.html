@@ -41,12 +41,14 @@
 <ng-template #thenBlock>
 <li *ngFor="let car of carsList|searcher:queryString|pricefilter:pricemin:pricemax|dateranker:order" class="list-group">
     <ul class="list-group-item">
-    {{car.title}} {{car.price}} {{car.issuance}}
+    <div>
+        {{car.title}} {{car.price}} {{car.issuance}}
+    </div>
     <button type="button" class="btn btn-success btn-sm" (click)="toggleCarData(car)">Détails</button>
-    <button type="button" class="btn btn-warning btn-sm" (click)="toggleCarData(car)">Editer</button>
+    <button type="button" class="btn btn-warning btn-sm" routerLink="/edit/{{car.id}}">Editer</button>
     <button type="button" class="btn btn-dark btn-sm" (click)="deleteCar(car)">Supprimer</button>
     <section *ngIf="car.shown == true">
-        <app-carspecs [carId]=car.id></app-carspecs>
+        <app-carspecs [carId]=car.id></app-carspecs>[routerLink]="[ '.', 'Service/Sign_in' ]
     </section>
     </ul>
 </li>
@@ -55,9 +57,11 @@
 <ng-template #elseBlock>
 <li *ngFor="let car of carsList|searcher:queryString|pricefilter:pricemin:pricemax|priceranker:order" class="list-group">
     <ul class="list-group-item">
-    {{car.title}} {{car.price}} {{car.issuance}}
+    <div>
+        {{car.title}} {{car.price}} {{car.issuance}}
+    </div>
     <button type="button" class="btn btn-success btn-sm" (click)="toggleCarData(car)">Détails</button>
-    <button type="button" class="btn btn-warning btn-sm" (click)="toggleCarData(car)">Editer</button>
+    <button type="button" class="btn btn-warning btn-sm" routerLink="/edit/{{car.id}}">Editer</button>
     <button type="button" class="btn btn-dark btn-sm" (click)="deleteCar(car)">Supprimer</button>
     <section *ngIf="car.shown == true">
         <app-carspecs [carId]=car.id></app-carspecs>

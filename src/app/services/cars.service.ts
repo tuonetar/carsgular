@@ -25,16 +25,19 @@ export class CarsService {
     return this.http.get<Car>(`${this.apiURL}/${id}`)
   }
 
-  // Yet to be tested
   create(data: Car): Observable<Car> {
     return this.http.post(this.apiURL, data);
   }
-  update(id: number, data: Car): Observable<Car> {
+
+  update(id: any, data: Car): Observable<Car> {
     return this.http.put(`${this.apiURL}/${id}`, data);
   }
+
   delete(id: number): Observable<any> {
     return this.http.delete(`${this.apiURL}/${id}`);
   }
+
+  // Yet to be tested
   deleteAll(): Observable<Car> {
     return this.http.delete(this.apiURL);
   }
