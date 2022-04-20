@@ -13,6 +13,7 @@ import { PricerankerPipe } from './pipes/priceranker.pipe';
 import { DaterankerPipe } from './pipes/dateranker.pipe';
 import { SearcherPipe } from './pipes/searcher.pipe';
 import { PricefilterPipe } from './pipes/pricefilter.pipe';
+import { CarslistComponent } from './components/carslist/carslist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,14 +22,15 @@ import { PricefilterPipe } from './pipes/pricefilter.pipe';
     PricerankerPipe,
     DaterankerPipe,
     SearcherPipe,
-    PricefilterPipe
+    PricefilterPipe,
+    CarslistComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

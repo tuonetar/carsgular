@@ -3,12 +3,11 @@ import { Car } from 'src/app/car.model';
 import { CarsService } from 'src/app/services/cars.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-carslist',
+  templateUrl: './carslist.component.html',
+  styleUrls: ['./carslist.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'carsgular';
+export class CarslistComponent implements OnInit {
 
   valueDate = "Date";
 

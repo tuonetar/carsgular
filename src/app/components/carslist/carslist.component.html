@@ -1,0 +1,69 @@
+<section>
+<div>
+    <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Recherche</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Recherche" aria-describedby="inputGroup-sizing-sm"  [(ngModel)]="queryString">
+    </div>
+    
+    <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Prix Min</span>
+    </div>
+    <input type="number" [(ngModel)]="pricemin">
+    </div>
+    
+    <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Prix Max</span>
+    </div>
+    <input type="number" [(ngModel)]="pricemax">
+    </div>
+    <div class="form-select form-select-sm">
+    <label>Odonner par : </label>
+    <select class="form-control" [(ngModel)]="orderValue" name="ranking" ngModel>
+        <option selected>Date</option>
+        <option>Prix</option>
+    </select>
+    </div>
+    <div class="form-select form-select-sm">
+    <label> De manière : </label>
+    <select class="form-control" [(ngModel)]="order" name="ranking" ngModel>
+        <option selected>DESC</option>
+        <option>ASC</option>
+    </select>
+    </div>
+</div>
+</section>
+
+<div *ngIf="orderValue.includes(valueDate); then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+<li *ngFor="let car of carsList|searcher:queryString|pricefilter:pricemin:pricemax|dateranker:order" class="list-group">
+    <ul class="list-group-item">
+    {{car.title}} {{car.price}} {{car.issuance}}
+    <button type="button" class="btn btn-success btn-sm" (click)="toggleCarData(car)">Détails</button>
+    <button type="button" class="btn btn-warning btn-sm" (click)="toggleCarData(car)">Editer</button>
+    <button type="button" class="btn btn-dark btn-sm" (click)="deleteCar(car)">Supprimer</button>
+    <section *ngIf="car.shown == true">
+        <app-carspecs [carId]=car.id></app-carspecs>
+    </section>
+    </ul>
+</li>
+</ng-template>
+
+<ng-template #elseBlock>
+<li *ngFor="let car of carsList|searcher:queryString|pricefilter:pricemin:pricemax|priceranker:order" class="list-group">
+    <ul class="list-group-item">
+    {{car.title}} {{car.price}} {{car.issuance}}
+    <button type="button" class="btn btn-success btn-sm" (click)="toggleCarData(car)">Détails</button>
+    <button type="button" class="btn btn-warning btn-sm" (click)="toggleCarData(car)">Editer</button>
+    <button type="button" class="btn btn-dark btn-sm" (click)="deleteCar(car)">Supprimer</button>
+    <section *ngIf="car.shown == true">
+        <app-carspecs [carId]=car.id></app-carspecs>
+    </section>
+    </ul>
+</li>
+</ng-template>
+
+
